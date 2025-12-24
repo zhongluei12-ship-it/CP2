@@ -294,16 +294,6 @@ def get_model(model_name: str):
 
 
 # ---------------------------
-# OPTIONAL: FEATURE IMPORTANCE (if exists)
-# ---------------------------
-st.subheader("🌲 Random Forest Feature Importance")
-if hasattr(ml, "rf_importance"):
-    st.dataframe(ml.rf_importance.head(15), use_container_width=True)
-    st.bar_chart(ml.rf_importance.set_index("feature").head(15))
-else:
-    st.caption("Feature importance not available in machine_learning.py (optional).")
-
-# ---------------------------
 # SIDEBAR
 # ---------------------------
 with st.sidebar:
@@ -569,3 +559,4 @@ with tab_data:
     except Exception as e:
         st.write("Could not plot this feature.")
         st.caption(str(e))
+
